@@ -1,0 +1,13 @@
+# Ambientes
+.env
+venv/
+
+# Banco de dados
+db.sqlite3
+
+# Arquivos compilados
+__pycache__/
+*.pyc
+
+# Arquivos estáticos de produção
+staticfiles/

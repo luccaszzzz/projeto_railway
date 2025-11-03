@@ -1,0 +1,15 @@
+<h1>Meu Site</h1>
+
+{% if user.is_authenticated %}
+  <p>Olá, {{ user.username }}!</p>
+  <form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="link-like-button" style="border: none; background: none; color: blue; cursor: pointer; padding: 0;">
+        Sair
+    </button>
+</form>
+{% else %}
+  <p>Você não está logado.</p>
+  <a href="{% url 'login' %}">Entrar</a> |
+  <a href="{% url 'signup' %}">Cadastrar</a>
+{% endif %}
