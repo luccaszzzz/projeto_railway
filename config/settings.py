@@ -90,3 +90,21 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
+
+# --- Configurações de Segurança para Produção (CSRF/HTTPS) ---
+
+# Garante que os cookies CSRF são enviados apenas via HTTPS
+CSRF_COOKIE_SECURE = True
+
+# Garante que os cookies de Sessão são enviados apenas via HTTPS
+SESSION_COOKIE_SECURE = True
+
+# Recomenda o uso de HSTS (HTTP Strict Transport Security)
+# Diga aos navegadores que só se conectem usando HTTPS.
+SECURE_HSTS_SECONDS = 31536000 # 1 ano
+
+# Garante que todo o tráfego não-HTTPS é redirecionado para HTTPS
+SECURE_SSL_REDIRECT = True
+
+# Permite que proxies intermediários (como o Railway) definam o esquema HTTPS
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
